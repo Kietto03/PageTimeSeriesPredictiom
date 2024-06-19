@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Forecast for {{ column }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Forecast for {{ column }}</h1>
+    </header>
+    <div class="container">
+        {% for model, plot_url in plots.items() %}
+        <h2>{{ model }} Prediction</h2>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="{{ model }} Forecast plot"> {% endfor %}
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
+</body>
+
+</html>

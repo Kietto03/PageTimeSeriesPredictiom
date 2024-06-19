@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Forecasting Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Forecasting Application</h1>
+    </header>
+    <div class="container">
+        <form action="/forecast" method="post">
+            <label for="column">Select Column to Forecast:</label>
+            <select name="column" id="column">
+                {% for column in columns %}
+                <option value="{{ column }}">{{ column }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Generate Forecast</button>
+        </form>
+    </div>
+</body>
+
+</html>
